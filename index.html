@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Профессиональное бурение скважин на воду в Приморье. Быстро, качественно и с гарантией. Звоните и заказывайте прямо сейчас!">
+	<meta name="keywords" content="бурение скважин, вода, Приморье, бурение скважин на воду, геологоразведка, монтаж насосов">
+	<meta property="og:title" content="Примвода - бурение скважин на воду в Приморье">
+	<meta property="og:description" content="Профессиональное бурение скважин на воду в Приморье. Быстро, качественно и с гарантией. Звоните и заказывайте прямо сейчас!">
+	<meta property="og:image" content="https://примвода.ру/img/logo.png">
+	<meta property="og:url" content="https://примвода.ру">
+	<title>Примвода - бурение скважин на воду в Приморье</title>
+	<link href="dist/css/bootstrap.css" rel="stylesheet">
+	<link href="icons/bootstrap-icons.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+	<link href="dist/css/custom.css" rel="stylesheet">
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="icon/favicon.ico">
+	<link rel="icon" type="image/png" href="icon/favicon.png">
+	<link rel="icon" type="image/svg+xml" href="icon/favicon.svg">
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-LLPYE4ZPZQ"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'G-LLPYE4ZPZQ');
+	</script>
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function(m, e, t, r, i, k, a) {
+			m[i] = m[i] || function() {
+				(m[i].a = m[i].a || []).push(arguments)
+			};
+			m[i].l = 1 * new Date();
+			for (var j = 0; j < document.scripts.length; j++) {
+				if (document.scripts[j].src === r) {
+					return;
+				}
+			}
+			k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+		})
+		(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+		ym(99580047, "init", {
+			clickmap: true,
+			trackLinks: true,
+			accurateTrackBounce: true
+		});
+	</script>
+	<noscript>
+		<div><img src="https://mc.yandex.ru/watch/99580047" style="position:absolute; left:-9999px;" alt="" /></div>
+	</noscript>
+	<!-- /Yandex.Metrika counter -->
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
+	<header class="fixed-top bg-white shadow-sm" id="navbar">
+		<div class="container">
+			<div class="d-flex flex-wrap justify-content-between align-items-center py-3 border-bottom">
+				<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+					<i class="bi bi-droplet fs-2 text-primary me-2"></i> <!-- Иконка outline -->
+					<span class="fs-4">Примвода</span>
+				</a>
+				<ul class="nav nav-pills">
+					<li class="nav-item">
+						<a href="#water-supply" class="nav-link">
+							<i class="bi bi-water d-md-none"></i> <!-- Иконка для воды (только на мобильных) -->
+							<span class="d-none d-md-inline">вода</span> <!-- Текст (скрыт на мобильных) -->
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#well-map" class="nav-link">
+							<i class="bi bi-map d-md-none"></i> <!-- Иконка для карты (только на мобильных) -->
+							<span class="d-none d-md-inline">карта</span> <!-- Текст (скрыт на мобильных) -->
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#water-search" class="nav-link">
+							<i class="bi bi-search d-md-none"></i> <!-- Иконка для поиска (только на мобильных) -->
+							<span class="d-none d-md-inline">поиск</span> <!-- Текст (скрыт на мобильных) -->
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#well-drilling" class="nav-link">
+							<i class="bi bi-tools d-md-none"></i> <!-- Иконка для бурения (только на мобильных) -->
+							<span class="d-none d-md-inline">бурение</span> <!-- Текст (скрыт на мобильных) -->
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#equipment-installation" class="nav-link">
+							<i class="bi bi-gear d-md-none"></i> <!-- Иконка для монтажа (только на мобильных) -->
+							<span class="d-none d-md-inline">монтаж</span> <!-- Текст (скрыт на мобильных) -->
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#contacts" class="nav-link">
+							<i class="bi bi-telephone d-md-none"></i> <!-- Иконка для контактов (только на мобильных) -->
+							<span class="d-none d-md-inline">контакты</span> <!-- Текст (скрыт на мобильных) -->
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section id="water-supply">
+		<div class="container">
+			<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+				<!-- Карточка 1: Связаться с нами -->
+				<div class="col">
+					<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('img/contact-bg.jpg');">
+						<div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+							<div class="d-flex align-items-center mb-4">
+								<i class="bi bi-telephone fs-1 me-3"></i>
+								<h3 class="display-6 lh-1 fw-bold mb-0">Связаться с нами</h3>
+							</div>
+							<p class="mb-4">Оставьте заявку на сайте, позвоните или напишите в WhatsApp.</p>
+						</div>
+					</div>
+				</div>
+				<!-- Карточка 2: Выезд на объект -->
+				<div class="col">
+					<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('img/visit-bg.jpg');">
+						<div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+							<div class="d-flex align-items-center mb-4">
+								<i class="bi bi-geo-alt fs-1 me-3"></i>
+								<h3 class="display-6 lh-1 fw-bold mb-0">Выезд на объект</h3>
+							</div>
+							<p class="mb-4">Наш специалист приедет на ваш участок для осмотра.</p>
+						</div>
+					</div>
+				</div>
+				<!-- Карточка 3: Договор -->
+				<div class="col">
+					<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('img/agreement-bg.jpg');">
+						<div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+							<div class="d-flex align-items-center mb-4">
+								<i class="bi bi-file-earmark-text fs-1 me-3"></i>
+								<h3 class="display-6 lh-1 fw-bold mb-0">Договор</h3>
+							</div>
+							<p class="mb-4">Согласуем дату, заключим договор и обсудим условия.</p>
+						</div>
+					</div>
+				</div>
+				<!-- Карточка 4: Производство работ -->
+				<div class="col">
+					<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('img/drilling-bg.jpg');">
+						<div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+							<div class="d-flex align-items-center mb-4">
+								<i class="bi bi-tools fs-1 me-3"></i>
+								<h3 class="display-6 lh-1 fw-bold mb-0">Производство работ</h3>
+							</div>
+							<p class="mb-4">Проведём бурение скважины в согласованные сроки.</p>
+						</div>
+					</div>
+				</div>
+				<!-- Карточка 5: Монтаж оборудования -->
+				<div class="col">
+					<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('img/installation-bg.jpg');">
+						<div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+							<div class="d-flex align-items-center mb-4">
+								<i class="bi bi-wrench fs-1 me-3"></i>
+								<h3 class="display-6 lh-1 fw-bold mb-0">Монтаж оборудования</h3>
+							</div>
+							<p class="mb-4">Установим и настроим оборудование для подачи воды.</p>
+						</div>
+					</div>
+				</div>
+				<!-- Карточка 6: Чистая вода -->
+				<div class="col">
+					<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('img/water-bg.jpg');">
+						<div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+							<div class="d-flex align-items-center mb-4">
+								<i class="bi bi-droplet fs-1 me-3"></i>
+								<h3 class="display-6 lh-1 fw-bold mb-0">Чистая вода</h3>
+							</div>
+							<p class="mb-4">Наслаждайтесь чистой водой в вашем доме!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="well-map">
+		<div class="container col-xxl-8 px-4 py-5">
+			<div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+				<div class="col-lg-6">
+					<h1 class="display-4 fw-bold text-body-emphasis">Какие глубины в вашем районе?</h1>
+					<!-- Контейнер для двух колонок -->
+					<div class="row mt-4">
+						<!-- Левая колонка: Текст -->
+						<div class="col-md-8">
+							<p class="lead mb-4"> Найдите свой участок и узнайте, какие условия бурения характерны для вашего района. </p>
+							<div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+								<a href="#contacts" class="btn btn-primary btn-lg px-4 me-md-2">Узнать больше</a>
+							</div>
+						</div>
+						<!-- Правая колонка: Легенда -->
+						<div class="col-md-4">
+							<div class="legend">
+								<h4>Глубина (м)</h4>
+								<div>
+									<i class="color-1"></i> До 20 м
+								</div>
+								<div>
+									<i class="color-2"></i> 20–40 м
+								</div>
+								<div>
+									<i class="color-3"></i> 40–60 м
+								</div>
+								<div>
+									<i class="color-4"></i> 60–80 м
+								</div>
+								<div>
+									<i class="color-5"></i> Свыше 80 м
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 mb-4">
+					<div id="map" class="rounded-3" style="height: 400px;"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="water-search">
+		<div class="container col-xxl-8 px-4 py-5">
+			<div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+				<h1 class="display-4 fw-bold text-body-emphasis"> Поиск воды</h1>
+				<p class="lead"> Мы предлагаем два метода поиска воды на вашем участке: современный с использованием георадара и традиционный с рамками. Выберите подходящий вариант, и мы поможем вам найти воду быстро и точно. </p>
+				<div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-5">
+					<!-- Метод 1: Георадар -->
+					<div class="col">
+						<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('img/georadar.jpg');">
+							<div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+								<h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"> Георадар </h3>
+								<p class="mb-4"> Современный метод поиска воды с использованием георадара. Позволяет точно определить глубину залегания водоносного слоя и избежать лишних затрат на бурение. </p>
+								<div class="mt-auto">
+									<a href="#contacts" class="btn btn-outline-light btn-lg w-100">Заказать георадар</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Метод 2: Традиционный поиск с рамками -->
+					<div class="col">
+						<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('img/frames.jpg');">
+							<div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+								<h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"> Традиционный поиск </h3>
+								<p class="mb-4"> Поиск воды с использованием рамок — проверенный временем метод. Подходит для участков, где применение георадара затруднено. </p>
+								<div class="mt-auto">
+									<a href="#contacts" class="btn btn-outline-light btn-lg w-100">Заказать поиск с рамками</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="well-drilling">
+		<div class="container col-xxl-8 px-4 py-5">
+			<div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg bg-white">
+				<div class="col-lg-6">
+					<h1 class="display-4 fw-bold text-body-emphasis mb-4"> Профессиональное бурение скважин на воду</h1>
+					<p class="lead mb-4"> Быстро, качественно и с гарантией. Обеспечим ваш дом чистой водой за один день! </p>
+					<ul class="list-unstyled mb-4">
+						<li class="mb-3 d-flex align-items-center">
+							<i class="bi bi-speedometer2 fs-4 me-3 text-primary"></i>
+							<div>
+								<strong>Быстро</strong><span class="d-none d-md-inline">: Бурение за один день.</span>
+							</div>
+						</li>
+						<li class="mb-3 d-flex align-items-center">
+							<i class="bi bi-tools fs-4 me-3 text-primary"></i>
+							<div>
+								<strong>Результативно</strong><span class="d-none d-md-inline">: Найдём воду и обеспечим дебит.</span>
+							</div>
+						</li>
+						<li class="mb-3 d-flex align-items-center">
+							<i class="bi bi-check-circle fs-4 me-3 text-primary"></i>
+							<div>
+								<strong>Гарантия</strong><span class="d-none d-md-inline">: На все работы.</span>
+							</div>
+						</li>
+						<li class="mb-3 d-flex align-items-center">
+							<i class="bi bi-house fs-4 me-3 text-primary"></i>
+							<div>
+								<strong>Индивидуальный подход</strong><span class="d-none d-md-inline">: Учитываем особенности участка.</span>
+							</div>
+						</li>
+					</ul>
+					<div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+						<a href="#contacts" class="btn btn-primary btn-lg px-4 me-md-2">Заказать бурение</a>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<img src="img/drilling-machine.jpg" class="d-block mx-lg-auto img-fluid rounded-3" alt="Бурение скважин" width="700" height="500" loading="lazy">
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="equipment-installation">
+		<div class="container col-xxl-8 px-4 py-5">
+			<div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+				<h1 class="display-4 fw-bold text-body-emphasis"> Монтаж оборудования </h1>
+				<p class="lead"> Мы предлагаем комплексные решения для водоснабжения и канализации: монтаж погружных центробежных насосов для скважин любой глубины, установку современных систем канализации (септики, очистные сооружения) и ввод воды в дом. Все работы выполняются с использованием качественных материалов и современных технологий, обеспечивая надежность, комфорт и экологическую безопасность вашего дома. </p>
+				<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+					<!-- Карточка 1: Насосы под ключ -->
+					<div class="col">
+						<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg d-flex flex-column" style="background-image: url('img/pump-installation.jpg');">
+							<div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+								<h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"> Насосы под ключ </h3>
+								<p class="mb-4"> Установка погружных и поверхностных насосов для скважин любой глубины. Гарантия надежности и долговечности. </p>
+								<div class="mt-auto">
+									<!-- Кнопка выравнивается внизу -->
+									<a href="#contacts" class="btn btn-outline-light btn-lg w-100">Заказать</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Карточка 2: Водоотведение -->
+					<div class="col">
+						<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg d-flex flex-column" style="background-image: url('img/sewage-system.jpg');">
+							<div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+								<h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"> Водоотведение </h3>
+								<p class="mb-4"> Монтаж современных систем канализации: септики, локальные очистные сооружения. Комфорт и экологическая безопасность. </p>
+								<div class="mt-auto">
+									<!-- Кнопка выравнивается внизу -->
+									<a href="#contacts" class="btn btn-outline-light btn-lg w-100">Заказать</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Карточка 3: Ввод в дом -->
+					<div class="col">
+						<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg d-flex flex-column" style="background-image: url('img/water-supply.jpg');">
+							<div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+								<h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"> Ввод в дом </h3>
+								<p class="mb-4"> Подключение воды к дому, прокладка трубопровода и установка оборудования. Надежность и комфорт круглый год. </p>
+								<div class="mt-auto">
+									<!-- Кнопка выравнивается внизу -->
+									<a href="#contacts" class="btn btn-outline-light btn-lg w-100">Заказать</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="reviews">
+		<div class="container">
+			<!-- Карусель -->
+			<div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel">
+				<!-- Индикаторы (точки) -->
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+					<button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+					<button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+				</div>
+				<!-- Слайды -->
+				<div class="carousel-inner">
+					<!-- Слайд 1: Земля -->
+					<div class="carousel-item active" data-bs-interval="5000">
+						<img src="img/earth.jpg" class="d-block w-100" alt="Земля">
+						<div class="carousel-caption bg-dark bg-opacity-50 p-3 rounded">
+							<h5>Земля, апрель 2024</h5>
+							<p>"Скважину пробурили за один день, вода чистая и вкусная. Спасибо!"</p>
+							<a href="https://www.instagram.com/p/земля-видео/" target="_blank" class="btn btn-primary btn-sm">
+								<i class="bi bi-instagram me-2"></i>Смотреть видео </a>
+						</div>
+					</div>
+					<!-- Слайд 2: Марс -->
+					<div class="carousel-item" data-bs-interval="5000">
+						<img src="img/mars.jpg" class="d-block w-100" alt="Марс">
+						<div class="carousel-caption bg-dark bg-opacity-50 p-3 rounded">
+							<h5>Марс, май 2024</h5>
+							<p>"На Марсе вода оказалась даже чище, чем на Земле. Рекомендую!"</p>
+							<a href="https://www.instagram.com/p/марс-видео/" target="_blank" class="btn btn-primary btn-sm">
+								<i class="bi bi-instagram me-2"></i>Смотреть видео </a>
+						</div>
+					</div>
+					<!-- Слайд 3: Луна -->
+					<div class="carousel-item" data-bs-interval="5000">
+						<img src="img/moon.jpg" class="d-block w-100" alt="Луна">
+						<div class="carousel-caption bg-dark bg-opacity-50 p-3 rounded">
+							<h5>Луна, июнь 2024</h5>
+							<p>"На Луне пробурили скважину за рекордное время. Вода есть!"</p>
+							<a href="https://www.instagram.com/p/луна-видео/" target="_blank" class="btn btn-primary btn-sm">
+								<i class="bi bi-instagram me-2"></i>Смотреть видео </a>
+						</div>
+					</div>
+					<!-- Слайд 4: Венера -->
+					<div class="carousel-item" data-bs-interval="5000">
+						<img src="img/venus.jpg" class="d-block w-100" alt="Венера">
+						<div class="carousel-caption bg-dark bg-opacity-50 p-3 rounded">
+							<h5>Венера, июль 2024</h5>
+							<p>"На Венере вода оказалась горячей, но всё равно пригодной для использования. Удивительно!"</p>
+							<a href="https://www.instagram.com/p/венера-видео/" target="_blank" class="btn btn-primary btn-sm">
+								<i class="bi bi-instagram me-2"></i>Смотреть видео </a>
+						</div>
+					</div>
+					<!-- Слайд 5: Титан -->
+					<div class="carousel-item" data-bs-interval="5000">
+						<img src="img/titan.jpg" class="d-block w-100" alt="Титан">
+						<div class="carousel-caption bg-dark bg-opacity-50 p-3 rounded">
+							<h5>Титан, август 2024</h5>
+							<p>"На Титане вода оказалась ледяной, но её много. Отличный результат!"</p>
+							<a href="https://www.instagram.com/p/титан-видео/" target="_blank" class="btn btn-primary btn-sm">
+								<i class="bi bi-instagram me-2"></i>Смотреть видео </a>
+						</div>
+					</div>
+				</div>
+				<!-- Кнопки навигации -->
+				<button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Предыдущий</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Следующий</span>
+				</button>
+			</div>
+		</div>
+	</section>
+	<section id="contacts">
+		<div class="container col-xxl-8 px-4 py-5">
+			<div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg bg-white">
+				<h1 class="display-4 fw-bold text-body-emphasis mb-5"> Контакты</h1>
+				<!-- Левая часть: Форма "Оставить заявку" -->
+				<div class="col-lg-6 mb-4">
+					<div class="card h-100 p-4">
+						<!-- Заголовок (будет меняться) -->
+						<h3 id="form-title" class="fs-2 text-body-emphasis mb-4"> Оставить заявку</h3>
+						<!-- Форма -->
+						<form id="feedback-form">
+							<div class="mb-3">
+								<input type="text" class="form-control" id="name" placeholder="Ваше имя" required>
+							</div>
+							<div class="mb-3">
+								<input type="tel" class="form-control" id="phone" placeholder="Ваш телефон" required>
+							</div>
+							<div class="mb-3">
+								<textarea class="form-control" id="message" rows="3" placeholder="Ваше сообщение"></textarea>
+							</div>
+							<button type="submit" class="btn btn-primary w-100">Отправить</button>
+						</form>
+						<!-- Сообщение об успешной отправке -->
+						<div id="success-message" class="text-center" style="display: none;">
+							<p>Мы свяжемся с вами в ближайшее время.</p>
+						</div>
+					</div>
+				</div>
+				<!-- Правая часть: Контакты -->
+				<div class="col-lg-6 mb-4">
+					<div class="p-4">
+						<h3 class="fs-2 text-body-emphasis mb-4"> Свяжитесь с нами</h3>
+						<!-- Контакт: Позвонить -->
+						<div class="d-flex align-items-center mb-4">
+							<i class="bi bi-telephone fs-3 text-primary me-3"></i>
+							<div>
+								<p class="mb-1"> Телефон: </p>
+								<div class="mb-2">
+									<!-- Добавили отдельный блок для первого номера -->
+									<a href="tel:+79242646754" class="text-decoration-none">+7 924 264-67-54</a> Сергей
+								</div>
+								<div>
+									<!-- Добавили отдельный блок для второго номера -->
+									<a href="tel:+79147123030" class="text-decoration-none">+7 914 712-30-30</a> Александр
+								</div>
+							</div>
+						</div>
+						<!-- Контакт: WhatsApp -->
+						<div class="d-flex align-items-center mb-4">
+							<i class="bi bi-whatsapp fs-3 text-primary me-3"></i>
+							<div>
+								<p class="mb-1"> WhatsApp: </p>
+								<a href="https://wa.me/79242646754" class="text-decoration-none" target="_blank">+7 924 264-67-54</a>
+							</div>
+						</div>
+						<!-- Дополнительная информация -->
+						<div class="mt-5">
+							<p class="text-muted"> Ответим на все ваши вопросы! </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="py-3 my-4 border-top">
+		<div class="container col-xxl-8 px-4">
+			<div class="d-flex flex-wrap justify-content-between align-items-center">
+				<div class="col-md-4 d-flex align-items-center">
+					<span class="mb-3 mb-md-0 text-body-secondary">© 2025 Примвода</span>
+				</div>
+				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+					<li class="ms-3">
+						<a class="text-body-secondary" href="https://wa.me/79242646754" target="_blank">
+							<i class="bi bi-whatsapp fs-5"></i>
+							<!-- Иконка WhatsApp -->
+						</a>
+					</li>
+					<li class="ms-3">
+						<a class="text-body-secondary" href="https://www.instagram.com/prim.voda/" target="_blank">
+							<i class="bi bi-instagram fs-5"></i>
+							<!-- Иконка Instagram -->
+						</a>
+					</li>
+					<li class="ms-3">
+						<a class="text-body-secondary" href="tel:+79142646754">
+							<i class="bi bi-telephone fs-5"></i>
+							<!-- Иконка телефона -->
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<!-- Cookie-уведомление -->
+	<div id="cookieConsent" class="fixed-bottom bg-light text-center p-3 d-none" style="z-index: 1000;">
+		<p class="mb-0"> Мы используем cookies для улучшения вашего опыта на сайте. Продолжая использовать сайт, вы соглашаетесь с этим. <a href="#" id="showPolicy" class="text-primary">Подробнее</a>. </p>
+		<!-- Скрытый блок с политикой -->
+		<div id="policyText" class="mt-3 text-start" style="display: none;">
+			<h5>Политика использования cookies</h5>
+			<p> Наш сайт использует cookies для улучшения вашего опыта. Cookies — это небольшие файлы, которые сохраняются на вашем устройстве и помогают нам анализировать трафик, персонализировать контент и улучшать функциональность сайта. </p>
+			<p> Мы используем следующие типы cookies: </p>
+			<ul>
+				<li><strong>Необходимые cookies</strong>: обеспечивают работу основных функций сайта.</li>
+				<li><strong>Аналитические cookies</strong>: помогают нам понять, как пользователи взаимодействуют с сайтом.</li>
+				<li><strong>Функциональные cookies</strong>: позволяют запоминать ваши предпочтения.</li>
+			</ul>
+			<p> Вы можете управлять cookies через настройки вашего браузера. Однако отключение cookies может повлиять на работу некоторых функций сайта. </p>
+			<p> Продолжая использовать наш сайт, вы соглашаетесь с использованием cookies в соответствии с этой политикой. </p>
+		</div>
+		<!-- Кнопки -->
+		<div class="mt-3">
+			<button id="acceptCookies" class="btn btn-primary btn-sm me-2">Принять</button>
+			<button id="rejectCookies" class="btn btn-outline-secondary btn-sm">Отклонить</button>
+		</div>
+	</div>
+	<img id="data-image" src="img/data.png" alt="Изображение с данными" style="display: none;" />
+	<canvas id="canvas" style="display: none;"></canvas>
+	<script src="dist/js/bootstrap.bundle.js"></script>
+	<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+	<script src="dist/js/main.js"></script>
+	<script src="dist/js/form.js"></script>
+	<script src="dist/js/cookies.js"></script>
+</body>
+
+</html>

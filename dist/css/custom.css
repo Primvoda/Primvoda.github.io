@@ -1,0 +1,134 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	padding-top: 80px;
+	/* Высота хидера */
+}
+
+.card-cover::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.2);
+	/* Затемнение фона */
+	border-radius: 0.5rem;
+	/* Скругление углов */
+	z-index: 1;
+}
+
+.card-cover>* {
+	position: relative;
+	z-index: 2;
+}
+
+.carousel-content {
+	position: relative;
+}
+
+.card-cover {
+	background-size: cover;
+	background-position: center;
+	height: 300px;
+	/* Фиксированная высота для десктопов */
+}
+
+@media (max-width: 768px) {
+	.card-cover {
+		height: 200px;
+		/* Фиксированная высота для мобильных устройств */
+	}
+}
+
+.text-shadow-1 {
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	/* Тень для текста */
+}
+
+/* Стили для карусели */
+
+#map {
+	height: 500px;
+	width: 100%;
+}
+
+/* Стили для легенды */
+.legend {
+  padding: 10px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  line-height: 18px;
+  color: #555;
+  font-size: 14px;
+}
+
+.legend h4 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.9;
+  border-radius: 2px; /* Квадратные иконки */
+}
+
+/* Цвета для легенды (оттенки синего) */
+.legend .color-1 {
+	background: #A6D5E8;
+}
+
+/* До 20 м */
+.legend .color-2 {
+	background: #6BB9E8;
+}
+
+/* 20–40 м */
+.legend .color-3 {
+	background: #3A89C9;
+}
+
+/* 40–60 м */
+.legend .color-4 {
+	background: #1E5A8A;
+}
+
+/* 60–80 м */
+.legend .color-5 {
+	background: #0A2E4E;
+}
+
+#success-message {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  margin-top: 0; /* Убираем отступ сверху */
+}
+
+#success-message h4 {
+  color: #28a745; /* Зелёный цвет для заголовка */
+}
+
+#success-message p {
+  color: #6c757d; /* Серый цвет для текста */
+}
+/* Добавим плавное появление текста */
+#policyText {
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+
+#policyText.show {
+    opacity: 1;
+    max-height: 500px; /* Максимальная высота для плавного раскрытия */
+}
