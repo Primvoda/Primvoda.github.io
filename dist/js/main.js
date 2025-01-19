@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Добавляем слой карты
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      attribution: '© OpenStreetMap contributors',
+      attribution: '© OpenStreetMap',
     }).addTo(map);
 
     // Создаём тепловую карту с зелёным градиентом
@@ -109,61 +109,60 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Функция для добавления маркеров с глубиной при зуме 16
-// Функция для добавления маркеров с глубиной при зуме 16
-function addDepthMarkers(markerData) {
-  const markers = L.layerGroup(); // Группа для маркеров
+  function addDepthMarkers(markerData) {
+    const markers = L.layerGroup(); // Группа для маркеров
 
-  // Цвета для маркеров (те же, что и в легенде)
-  const depthColors = [
-    "#A6D5E8", // До 20 м
-    "#6BB9E8", // 20–40 м
-    "#3A89C9", // 40–60 м
-    "#1E5A8A", // 60–80 м
-    "#0A2E4E"  // Свыше 80 м
-  ];
+    // Цвета для маркеров (те же, что и в легенде)
+    const depthColors = [
+      "#A6D5E8", // До 20 м
+      "#6BB9E8", // 20–40 м
+      "#3A89C9", // 40–60 м
+      "#1E5A8A", // 60–80 м
+      "#0A2E4E"  // Свыше 80 м
+    ];
 
-  markerData.forEach(well => {
-    const [lat, lng, depth] = well;
+    markerData.forEach(well => {
+      const [lat, lng, depth] = well;
 
-    // Обратный пересчёт из нормализованной глубины в реальную
-    const realDepth = depth * threshold;
+      // Обратный пересчёт из нормализованной глубины в реальную
+      const realDepth = depth * threshold;
 
-    // Определяем цвет маркера на основе глубины
-    let color;
-    if (realDepth < 20) {
-      color = depthColors[0]; // До 20 м
-    } else if (realDepth < 40) {
-      color = depthColors[1]; // 20–40 м
-    } else if (realDepth < 60) {
-      color = depthColors[2]; // 40–60 м
-    } else if (realDepth < 80) {
-      color = depthColors[3]; // 60–80 м
-    } else {
-      color = depthColors[4]; // Свыше 80 м
-    }
+      // Определяем цвет маркера на основе глубины
+      let color;
+      if (realDepth < 20) {
+        color = depthColors[0]; // До 20 м
+      } else if (realDepth < 40) {
+        color = depthColors[1]; // 20–40 м
+      } else if (realDepth < 60) {
+        color = depthColors[2]; // 40–60 м
+      } else if (realDepth < 80) {
+        color = depthColors[3]; // 60–80 м
+      } else {
+        color = depthColors[4]; // Свыше 80 м
+      }
 
-    // Создаём круг с прозрачностью
-    const circle = L.circle([lat, lng], {
-      radius: 50, // Радиус круга
-      fillColor: color,
-      fillOpacity: 0.8, // Прозрачность заливки
-      color: "#000", // Цвет обводки
-      weight: 0 // Толщина обводки
+      // Создаём круг с прозрачностью
+      const circle = L.circle([lat, lng], {
+        radius: 50, // Радиус круга
+        fillColor: color,
+        fillOpacity: 0.8, // Прозрачность заливки
+        color: "#000", // Цвет обводки
+        weight: 0 // Толщина обводки
+      });
+
+      // Добавляем круг в группу
+      markers.addLayer(circle);
     });
 
-    // Добавляем круг в группу
-    markers.addLayer(circle);
-  });
-
-  // Показываем маркеры только при зуме 16
-  map.on('zoomend', () => {
-    if (map.getZoom() === 16) {
-      map.addLayer(markers);
-    } else {
-      map.removeLayer(markers);
-    }
-  });
-}
+    // Показываем маркеры только при зуме 16
+    map.on('zoomend', () => {
+      if (map.getZoom() === 16) {
+        map.addLayer(markers);
+      } else {
+        map.removeLayer(markers);
+      }
+    });
+  }
 
   // Функция для добавления кастомной кнопки геолокации
   function addLocationButton() {
@@ -172,9 +171,11 @@ function addDepthMarkers(markerData) {
     locationButton.onAdd = function () {
       const div = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
       const button = L.DomUtil.create('button', 'leaflet-control-locate');
-      button.innerHTML = '📍'; // Иконка кнопки
+      
+      // Используем иконку геолокации из Bootstrap Icons
+      button.innerHTML = '<i class="bi bi-geo-alt"></i>'; // Иконка геолокации
       button.title = 'Найти моё местоположение';
-      button.style.fontSize = '20px';
+      button.style.fontSize = '14px';
       button.style.cursor = 'pointer';
       button.style.border = 'none';
       button.style.background = 'white';
