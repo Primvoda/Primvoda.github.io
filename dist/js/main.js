@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM загружен");
 
   let map; // Основная карта
   let heatmapLayer; // Текущий слой тепловой карты
@@ -9,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Функция для извлечения данных из изображения
   function extractDataFromImage(image) {
-    console.log("Изображение загружено, размер:", image.width, "x", image.height);
 
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
@@ -21,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const data = imageData.data;
 
-    console.log("Данные изображения:", data);
 
     let byteArray = [];
     for (let i = 0; i < data.length; i += 4) {
@@ -29,18 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     byteArray = byteArray.filter(byte => byte !== 0);
-    console.log("Байты данных после фильтрации:", byteArray);
 
     const decoder = new TextDecoder("utf-8");
     const encodedData = decoder.decode(new Uint8Array(byteArray));
-    console.log("Закодированные данные:", encodedData);
 
     try {
       const decodedData = atob(encodedData);
-      console.log("Декодированные данные:", decodedData);
 
       const coordinates = JSON.parse(decodedData);
-      console.log("Координаты:", coordinates);
 
       // Находим минимальную и максимальную глубину
       const minDepth = Math.min(...coordinates.map(well => well.depth));
@@ -51,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       return coordinates;
     } catch (error) {
-      console.error("Ошибка при декодировании данных:", error);
       return [];
     }
   }
@@ -65,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
       maxZoom: 16 // Максимальный зум
     }).setView([43.35, 132.19], 9); // Начальный зум и центр карты
 
-    console.log("Карта инициализирована:", map);
 
     // Добавляем слой карты
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
@@ -102,10 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }).addTo(map);
 
-      console.log("Тепловая карта создана:", heatmapLayer);
-    } else {
-      console.error("Нет данных для тепловой карты");
-    }
+    } 
   }
 
   // Функция для добавления маркеров с глубиной при зуме 16
@@ -195,7 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Обработчик успешного получения местоположения
     map.on('locationfound', (e) => {
-      console.log("Местоположение найдено:", e.latlng);
       // Центрируем карту на местоположении
       map.setView(e.latlng, 16);
     });
@@ -203,14 +190,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Обработчик ошибки получения местоположения
     map.on('locationerror', (e) => {
       console.error("Ошибка при получении местоположения:", e.message);
-      alert("Не удалось определить ваше местоположение. Пожалуйста, проверьте настройки геолокации.");
     });
   }
 
   const image = document.getElementById("data-image");
 
   if (image.complete) {
-    console.log("Изображение уже загружено");
     const coordinates = extractDataFromImage(image);
 
     // Данные для тепловой карты (фиксированная интенсивность 0.8)
@@ -221,9 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initMap(heatmapData, markerData);
   } else {
-    console.log("Ожидаем загрузки изображения");
     image.onload = () => {
-      console.log("Изображение загружено:", image);
       const coordinates = extractDataFromImage(image);
 
       // Данные для тепловой карты (фиксированная интенсивность 0.8)
@@ -236,7 +219,4 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  image.onerror = () => {
-    console.error("Ошибка загрузки изображения");
-  };
 });
