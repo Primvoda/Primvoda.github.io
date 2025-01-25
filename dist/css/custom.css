@@ -6,7 +6,13 @@ body {
 	padding-top: 80px;
 	/* Высота хидера */
 }
+.hover-bg-opacity-75:hover {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+}
 
+.hover-border-opacity-75:hover {
+    border-color: rgba(0, 0, 0, 0.75) !important;
+}
 .card-cover::before {
 	content: '';
 	position: absolute;
